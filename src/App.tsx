@@ -14,15 +14,18 @@ import CompanyPage from './pages/company/CompanyPage';
 import StoresPage from './pages/stores/StoresPage';
 import ProductsPage from './pages/products/ProductsPage';
 import EmployeesPage from './pages/employes/EmployeesPage';
+import SchedulePage from './pages/schedule/SchedulePage';
+import RequestsPage from './pages/requests/RequestsPage';
+import AttendancePage from './pages/attendance/AttendancePage';
 
 // Route Guard Component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const isAuthenticated = localStorage.getItem('auth') !== null;
-  
+
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
-  
+
   return <>{children}</>;
 };
 
@@ -35,7 +38,7 @@ function App() {
             {/* Auth Routes */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            
+
             {/* Protected Routes */}
             <Route path="/" element={
               <ProtectedRoute>
@@ -44,7 +47,7 @@ function App() {
                 </MainLayout>
               </ProtectedRoute>
             } />
-            
+
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <MainLayout>
@@ -52,7 +55,7 @@ function App() {
                 </MainLayout>
               </ProtectedRoute>
             } />
-            
+
             <Route path="/company" element={
               <ProtectedRoute>
                 <MainLayout>
@@ -84,20 +87,41 @@ function App() {
                 </MainLayout>
               </ProtectedRoute>
             } />
-            
+
+            <Route path="/schedule" element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <SchedulePage />
+                </MainLayout>
+              </ProtectedRoute>
+            } />
+
+            <Route path="/requests" element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <RequestsPage />
+                </MainLayout>
+              </ProtectedRoute>
+            } />
+
+            <Route path="/attendance" element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <AttendancePage />
+                </MainLayout>
+              </ProtectedRoute>
+            } />
+
             {/* Placeholder routes */}
             {[
-              '/schedule', 
-              '/requests', 
-              '/attendance', 
-              '/files', 
+              '/files',
               '/notifications',
               '/settings',
               '/profile'
             ].map((path) => (
-              <Route 
-                key={path} 
-                path={path} 
+              <Route
+                key={path}
+                path={path}
                 element={
                   <ProtectedRoute>
                     <MainLayout>
@@ -109,14 +133,14 @@ function App() {
                       </div>
                     </MainLayout>
                   </ProtectedRoute>
-                } 
+                }
               />
             ))}
-            
+
             {/* Fallback route */}
             <Route path="*" element={<Navigate to="/dashboard\" replace />} />
           </Routes>
-          
+
           <Toaster position="top-right" />
         </AuthProvider>
       </Router>
