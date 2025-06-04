@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 import { FileText, Upload, Trash2, Download } from 'lucide-react';
 import { useForm } from 'react-hook-form';

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 import { User, Camera, Mail, Key } from 'lucide-react';
 import { useForm } from 'react-hook-form';

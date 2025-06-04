@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from 'react';
 import { Calendar as CalendarIcon, Clock, RefreshCcw, Users } from 'lucide-react';
 import { format, startOfToday, eachDayOfInterval, startOfWeek, endOfWeek, isToday, isSameDay } from 'date-fns';

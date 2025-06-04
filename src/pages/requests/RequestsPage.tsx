@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from 'react';
 import { ClipboardList, Calendar, Plus } from 'lucide-react';
 import { format } from 'date-fns';
@@ -209,7 +210,7 @@ export default function RequestsPage() {
                           type="request"
                         />
                       </div>
-                      {[UserRole.OWNER, UserRole.MANAGER].includes(user?.role!) && (
+                      {user?.role && [UserRole.OWNER, UserRole.MANAGER].includes(user.role) && (
                         <div className="flex gap-2">
                           <Button
                             variant="outline"

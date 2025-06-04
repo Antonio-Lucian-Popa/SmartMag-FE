@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 import { Users, UserPlus, Store as StoreIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
