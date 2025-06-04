@@ -13,6 +13,7 @@ import Dashboard from './pages/Dashboard';
 import CompanyPage from './pages/company/CompanyPage';
 import StoresPage from './pages/stores/StoresPage';
 import ProductsPage from './pages/products/ProductsPage';
+import EmployeesPage from './pages/employes/EmployeesPage';
 
 // Route Guard Component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -75,10 +76,17 @@ function App() {
                 </MainLayout>
               </ProtectedRoute>
             } />
+
+            <Route path="/employees" element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <EmployeesPage />
+                </MainLayout>
+              </ProtectedRoute>
+            } />
             
             {/* Placeholder routes */}
             {[
-              '/employees', 
               '/schedule', 
               '/requests', 
               '/attendance', 
