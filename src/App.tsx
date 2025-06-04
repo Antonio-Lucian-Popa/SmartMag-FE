@@ -17,6 +17,10 @@ import EmployeesPage from './pages/employes/EmployeesPage';
 import SchedulePage from './pages/schedule/SchedulePage';
 import RequestsPage from './pages/requests/RequestsPage';
 import AttendancePage from './pages/attendance/AttendancePage';
+import FilesPage from './pages/files/FilesPage';
+import NotificationsPage from './pages/notification/NotificationPage';
+import SettingsPage from './pages/settings/SettingsPage';
+import ProfilePage from './pages/profile/ProfilePage';
 
 // Route Guard Component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -112,12 +116,56 @@ function App() {
               </ProtectedRoute>
             } />
 
+            <Route path="/files" element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <FilesPage />
+                </MainLayout>
+              </ProtectedRoute>
+            } />
+
+            <Route path="/notifications" element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <NotificationsPage />
+                </MainLayout>
+              </ProtectedRoute>
+            } />
+
+            <Route path="/settings" element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <SettingsPage />
+                </MainLayout>
+              </ProtectedRoute>
+            } />
+
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <ProfilePage />
+                </MainLayout>
+              </ProtectedRoute>
+            } />
+
             {/* Placeholder routes */}
             {[
-              '/files',
-              '/notifications',
-              '/settings',
-              '/profile'
+              '/reports',
+              '/analytics',
+              '/integrations',
+              '/help',
+              '/feedback',
+              '/about',
+              '/terms',
+              '/privacy',
+              '/contact',
+              '/faq',
+              '/support',
+              '/legal',
+              '/resources',
+              '/community',
+              '/updates',
+              '/roadmap',
             ].map((path) => (
               <Route
                 key={path}
